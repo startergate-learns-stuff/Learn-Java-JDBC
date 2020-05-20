@@ -1,5 +1,8 @@
-import java.sql.*;
-public class JDBC02 {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class JDBC03 {
     public static void main(String[] args) {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -13,11 +16,11 @@ public class JDBC02 {
                 System.out.println("접속 실패");
             }
 
-            String SQL = "INSERT INTO mygsm VALUES ('3220_최호승', 'gsm3220', 18)";
+            String SQL = "UPDATE MYGSM SET PWD='1004', AGE=15 WHERE ID='gsm'";
 
             Statement st = conn.createStatement();
             st.executeUpdate(SQL);
-            System.out.println("입력 성공");
+            System.out.println("수정 성공_3220_최호승");
         } catch (Exception e) {
             e.printStackTrace();
         }
